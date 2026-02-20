@@ -11,7 +11,12 @@
 - The Miryoku QMK development branch readme is at https://github.com/manna-harbour/miryoku_qmk/tree/miryoku/users/manna-harbour_miryoku
 
 
-** 
+**
 
 [[https://github.com/manna-harbour][https://raw.githubusercontent.com/manna-harbour/miryoku/master/data/logos/manna-harbour-boa-32.png]]
- 
+
+## How to build
+
+My corne keyboard is build upon RP2020.
+
+`qmk compile -kb crkbd/rev1 -km manna-harbour_miryoku -e CONVERT_TO=rp2040_ce`
