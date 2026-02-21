@@ -49,3 +49,10 @@ LAYOUT_split_3x6_3( \
     LGUI_T(KC_A),       LALT_T(KC_S),      LCTL_T(KC_D),       LSFT_T(KC_F),       KC_G,               KC_H,              LSFT_T(KC_J),       LCTL_T(KC_K),       LALT_T(KC_L),       LGUI_T(KC_SCLN),      \
     LT(U_BUTTON,KC_Z),  ALGR_T(KC_X),      KC_C,               KC_V,               KC_B,               KC_N,              KC_M,               KC_COMM,            ALGR_T(KC_DOT),     LT(U_BUTTON,KC_SLSH), \
     U_NP,               U_NP,              LT(U_MEDIA,KC_ESC), LT(U_NAV,KC_SPC),   LT(U_MOUSE,KC_TAB), LT(U_SYM,KC_ENT),  LT(U_NUM,KC_BSPC),  LT(U_FUN,KC_DEL),   U_NP,               U_NP
+
+// Добавил знак вопроса, слъш и обратный слэш на правую руку
+#define MIRYOKU_LAYER_SYM \
+    KC_LCBR,  KC_AMPR, KC_ASTR, KC_LPRN, KC_RCBR,  U_NA,    TD(U_TD_U_BASE),  TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),  TD(U_TD_BOOT), \
+    KC_COLN,  KC_DLR,  KC_PERC, KC_CIRC, KC_PLUS,  KC_QUES, KC_LSFT,          KC_LCTL,           KC_LALT,         KC_LGUI,       \
+    KC_TILD,  KC_EXLM, KC_AT,   KC_HASH, KC_PIPE,  KC_SLSH, TD(U_TD_U_SYM),   TD(U_TD_U_MOUSE),  KC_ALGR,         KC_BSLS,          \
+    U_NP,     U_NP,    KC_LPRN, KC_RPRN, KC_UNDS,  U_NA,    U_NA,             U_NA,              U_NP,            U_NP
