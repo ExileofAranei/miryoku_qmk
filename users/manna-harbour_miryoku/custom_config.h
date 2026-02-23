@@ -77,7 +77,7 @@ LAYOUT_split_3x6_3( \
 
 #define MIRYOKU_LAYER_SYM \
     KC_GRV,            KC_LABK,           KC_RABK,           KC_MINS,           KC_PIPE,           KC_CIRC,           KC_LCBR,           KC_RCBR,           KC_DLR,            ARROW,             \
-    LGUI_T(KC_EXLM),   LALT_T(KC_ASTR),   LCTL_T(KC_SLSH),   LSFT_T(KC_EQL),    KC_AMPR,           KC_HASH,           LSFT_T(KC_LPRN),   LCTL_T(KC_RPRN),   LALT_T(KC_SCLN),   LGUI_T(KC_DQUO),   \
+    KC_EXLM,           KC_ASTR,           KC_SLSH,           KC_EQL,            KC_AMPR,           KC_HASH,           KC_LPRN,           KC_RPRN,           KC_SCLN,           KC_DQUO,           \
     KC_TILD,           KC_PLUS,           KC_LBRC,           KC_RBRC,           KC_PERC,           KC_AT,             KC_COLN,           KC_COMM,           KC_DOT,            KC_QUOT,           \
     U_NP,              U_NP,              KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
