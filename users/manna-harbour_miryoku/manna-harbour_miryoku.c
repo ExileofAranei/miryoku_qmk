@@ -7,44 +7,93 @@
 
 #include "manna-harbour_miryoku.h"
 
-
-// Additional Features double tap guard
-
+// ----------------------
+// Tap Dance enums
+// ----------------------
 enum {
     U_TD_BOOT,
+    U_TD_SYM_INDEX,
+    U_TD_SYM_MIDDLE,
+    U_TD_SYM_RING,
+    U_TD_SYM_PINKY,
 #define MIRYOKU_X(LAYER, STRING) U_TD_U_##LAYER,
-MIRYOKU_LAYER_LIST
+    MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 };
 
+// ----------------------
+// Tap Dance Functions
+// ----------------------
 void u_td_fn_boot(tap_dance_state_t *state, void *user_data) {
-  if (state->count == 2) {
-    reset_keyboard();
-  }
+    if (state->count == 2) {
+        reset_keyboard();
+    }
 }
 
+void u_td_sym_index(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code16(KC_LCBR);      // {
+    } else if (state->count == 2) {
+        default_layer_set((layer_state_t)1 << U_BASE);
+    }
+}
+
+void u_td_sym_middle(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code16(KC_RCBR);      // }
+    } else if (state->count == 2) {
+        default_layer_set((layer_state_t)1 << U_EXTRA);
+    }
+}
+
+void u_td_sym_ring(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code16(KC_DLR);       // $
+    } else if (state->count == 2) {
+        default_layer_set((layer_state_t)1 << U_TAP);
+    }
+}
+
+void u_td_sym_pinky(tap_dance_state_t *state, void *user_data) {
+    if (state->count == 1) {
+        tap_code16(KC_BSLS);       // backslash
+    } else if (state->count == 2) {
+        reset_keyboard();
+    }
+}
+
+// ----------------------
+// Tap Dance for Layers
+// ----------------------
 #define MIRYOKU_X(LAYER, STRING) \
 void u_td_fn_U_##LAYER(tap_dance_state_t *state, void *user_data) { \
-  if (state->count == 2) { \
-    default_layer_set((layer_state_t)1 << U_##LAYER); \
-  } \
+    if (state->count == 2) { \
+        default_layer_set((layer_state_t)1 << U_##LAYER); \
+    } \
 }
 MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 
+// ----------------------
+// Tap Dance Actions Table
+// ----------------------
 tap_dance_action_t tap_dance_actions[] = {
-    [U_TD_BOOT] = ACTION_TAP_DANCE_FN(u_td_fn_boot),
+    [U_TD_BOOT]       = ACTION_TAP_DANCE_FN(u_td_fn_boot),
 #define MIRYOKU_X(LAYER, STRING) [U_TD_U_##LAYER] = ACTION_TAP_DANCE_FN(u_td_fn_U_##LAYER),
-MIRYOKU_LAYER_LIST
+    MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
+    [U_TD_SYM_INDEX]  = ACTION_TAP_DANCE_FN(u_td_sym_index),
+    [U_TD_SYM_MIDDLE] = ACTION_TAP_DANCE_FN(u_td_sym_middle),
+    [U_TD_SYM_RING]   = ACTION_TAP_DANCE_FN(u_td_sym_ring),
+    [U_TD_SYM_PINKY]  = ACTION_TAP_DANCE_FN(u_td_sym_pinky),
 };
 
-
-// keymap
-
+// ----------------------
+// Keymaps
+// ----------------------
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 #define MIRYOKU_X(LAYER, STRING) [U_##LAYER] = U_MACRO_VA_ARGS(MIRYOKU_LAYERMAPPING_##LAYER, MIRYOKU_LAYER_##LAYER),
-MIRYOKU_LAYER_LIST
+    MIRYOKU_LAYER_LIST
 #undef MIRYOKU_X
 };
 

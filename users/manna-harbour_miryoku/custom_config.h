@@ -76,11 +76,10 @@ LAYOUT_split_3x6_3( \
     U_NP,              U_NP,              KC_DOT,            KC_0,              KC_MINS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
 
 #define MIRYOKU_LAYER_SYM \
-    KC_GRV,            KC_LABK,           KC_RABK,           KC_MINS,           KC_PIPE,           KC_CIRC,           KC_LCBR,           KC_RCBR,           KC_DLR,            ARROW,             \
-    KC_EXLM,           KC_ASTR,           KC_SLSH,           KC_EQL,            KC_AMPR,           KC_HASH,           KC_LPRN,           KC_RPRN,           KC_SCLN,           KC_DQUO,           \
-    KC_TILD,           KC_PLUS,           KC_LBRC,           KC_RBRC,           KC_PERC,           KC_AT,             KC_COLN,           KC_COMM,           KC_DOT,            KC_QUOT,           \
-    U_NP,              U_NP,              KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,              U_NA,              U_NP,              U_NP
-
+    KC_GRV,            KC_LABK,           KC_RABK,           KC_MINS,           KC_PIPE,           KC_CIRC,           TD(U_TD_SYM_INDEX),  TD(U_TD_SYM_MIDDLE), TD(U_TD_SYM_RING),   TD(U_TD_SYM_PINKY),  \
+    KC_EXLM,           KC_ASTR,           KC_SLSH,           KC_EQL,            KC_AMPR,           KC_HASH,           KC_LPRN,             KC_RPRN,             KC_SCLN,             KC_DQUO,             \
+    KC_TILD,           KC_PLUS,           KC_LBRC,           KC_RBRC,           KC_PERC,           KC_AT,             KC_COLN,             KC_COMM,             KC_DOT,              KC_QUOT,             \
+    U_NP,              U_NP,              KC_LPRN,           KC_RPRN,           KC_UNDS,           U_NA,              U_NA,                U_NA,                U_NP,                U_NP
 #define MIRYOKU_LAYER_FUN \
     KC_F12,            KC_F7,             KC_F8,             KC_F9,             KC_PSCR,           U_NA,              TD(U_TD_U_BASE),   TD(U_TD_U_EXTRA),  TD(U_TD_U_TAP),    TD(U_TD_BOOT),     \
     KC_F11,            KC_F4,             KC_F5,             KC_F6,             KC_SCRL,           U_NA,              KC_LSFT,           KC_LCTL,           KC_LALT,           KC_LGUI,           \
