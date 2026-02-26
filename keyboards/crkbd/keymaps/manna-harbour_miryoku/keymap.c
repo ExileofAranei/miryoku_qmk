@@ -91,30 +91,3 @@ bool oled_task_user(void) {
 
 #endif // OLED_ENABLE
 
-
-// ============================================================
-// Custom keys
-// ============================================================
-
-enum custom_keycodes {
-    ARROW = SAFE_RANGE,
-};
-
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case ARROW:
-            if (record->event.pressed) {
-                if (get_mods() & MOD_MASK_SHIFT) {
-                    // Shifted: ⇒ (U+21D2)
-                    del_mods(MOD_MASK_SHIFT);
-                    send_unicode_string("⇒");
-                    set_mods(get_mods());
-                } else {
-                    // Unshifted: → (U+2192)
-                    send_unicode_string("→");
-                }
-            }
-            return false;
-    }
-    return true;
-}
